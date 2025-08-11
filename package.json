@@ -1,0 +1,15 @@
+{
+  "name": "test-cookie-monorepo",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "scripts": {
+    "dev": "concurrently -k -n server,web \"npm run -w packages/server dev\" \"npm run -w packages/web dev\"",
+    "build": "npm run -w packages/server build && npm run -w packages/web build",
+    "start": "concurrently -k -n server,web \"npm run -w packages/server start\" \"npm run -w packages/web start\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.0.0"
+  }
+}
